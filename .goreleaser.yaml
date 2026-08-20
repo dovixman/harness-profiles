@@ -1,0 +1,45 @@
+version: 2
+
+project_name: hp
+
+builds:
+  - id: hp
+    main: ./cmd/hp
+    binary: hp
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/dovixman/harness-profiles/internal/adapters/cli.version={{.Version}}
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - ids:
+      - hp
+    formats:
+      - tar.gz
+    name_template: >-
+      {{ .ProjectName }}_{{ title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64{{ else }}{{ .Arch }}{{ end }}
+
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+
+release:
+  mode: keep-existing
+  replace_existing_artifacts: true
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"

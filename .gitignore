@@ -1,0 +1,9 @@
+.DS_Store
+.ai-sdlc/
+.agents/
+.opencode/
+.codegraph/
+.worktrees/
+coverage.out
+dist/
+/hp
