@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/dovixman/harness-profiles/compare/v1.0.0...v1.0.1) (2026-08-21)
+
+
+### Bug Fixes
+
+* **release:** publish assets before immutable release ([#3](https://github.com/dovixman/harness-profiles/issues/3)) ([88c1bac](https://github.com/dovixman/harness-profiles/commit/88c1bace5132d5271617b181ea9ef754e8d319d0))
+
 ## 1.0.0 (2026-08-21)
 
 
